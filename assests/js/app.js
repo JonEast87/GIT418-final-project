@@ -77,3 +77,7 @@ const viewOrder = () => {
       event.preventDefault();
   })
 }
+
+window.onload = function() {
+  viewOrder();
+}
