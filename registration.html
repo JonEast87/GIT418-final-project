@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | The Pit</title>
+  <link rel="stylesheet" type="text/css" href="assests/css/stylesheet.css">
+  <link rel="icon" type="image/png" href="assests/images/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="assests/images/favicon-16x16.png" sizes="16x16">
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300&family=Oswald:wght@700&family=Roboto+Slab:wght@500&display=swap" rel="stylesheet"> 
+  <script src="assests/js/modernizr.min.js"></script>
+  <script src="assests/js/app.js" async></script>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="registration.html" id="selected">Register</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <form>
+    
+    <h1>Payment form</h1>
+    <p>Required fields are followed by *.</p>
+
+    <section>
+
+      <h2>Contact information</h2>
+      <fieldset>
+
+        <legend>Tier: *</legend>
+        <ul id="tier" onchange="total()">
+          <li>
+            <label for="tier_3">
+              <input type="radio" name="tier" value="0" required>Naja (Hobbyist)
+            </label>
+          </li>
+          <li>
+            <label for="tier_2">
+              <input type="radio" name="tier" value="16">Rinkhal (Small Business)
+            </label>
+          </li>
+          <li>
+            <label for="tier_1">
+              <input type="radio" name="tier" value="32">Hamadryad (Ecommerce)
+            </label>
+          </li>
+        </ul>
+
+      </fieldset>
+
+      <fieldset>
+
+        <legend>Duration: *</legend>
+        <ul id="month" onchange="total()">
+          <li>
+            <label for="month_3">
+              <input type="radio" name="month" value="3" required>Thee Months (Reoccuring)
+            </label>
+          </li>
+          <li>
+            <label for="month_6">
+              <input type="radio" name="month" value="6">Six Months (Reoccuring)
+            </label>
+          </li>
+          <li>
+            <label for="month_12">
+              <input type="radio" name="month" value="12">Twelve Months (Reoccuring)
+            </label>          
+          </li>
+      </ul>
+
+      </fieldset>
+
+      <p>
+        <label for="name">
+          <span>Name: *</span>
+          <input type="text" id="username" placeholder="Fullname" name="username" required pattern="[A-Za-z]+" value="Jonathan Eastin">
+        </label>
+      </p>
+      <p>
+        <label for="mail">
+          <span>E-mail: *</span>
+          <input type="email" id="mail" placeholder="Email Address" name="usermail" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" value="j.d.east@icloud.com">
+        </label>
+      </p>
+      <p>
+        <label for="pwd">
+          <span>Password: *</span>
+          <input type="password" id="pwd" placeholder="Password" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" value="Nabaali2">
+        </label>
+      </p>
+
+    </section>
+
+    <section>
+      <h2>Payment information</h2>
+      <p>
+        <label for="card">Card:
+          <select id="card" name="usercard">
+            <option disabled selected value="blank"> -- select an option -- </option>
+            <option value="amex">Amex</option>
+            <option value="mc">MasterCard</option>
+            <option value="visa">Visa</option>
+          </select>
+        </label>
+      </p>
+
+      <!-- Fake card numbers for each selection below
+        Visa card: 4569-4039-6101-4710, MasterCard: 5191-9149-4215-7165, Amex: 3714-496353-98431 
+      -->
+      <p>
+        <label for="number">Card number: *
+          <input type="tel" id="number" name="cardnumber" value="3714-496353-98431">
+        </label>
+      </p>
+
+      <p>
+        <label for="expiration">Expiration date: *
+          <input type="text" name="expiration" id="expiration" placeholder="MM/YY" required pattern="^(0[1-9]|1[0-2])\/([0-9]{2})$" value="01/23">
+        </label>
+      </p>
+
+      <p id="write">Total amount.</p>
+
+      <button id="makeOrder" type="button">Validate the payment</button>
+    </section>
+
+  </form>
+
+  <section id="display">
+    <h2>Your Orders:</h2>
+  </section>
+
+</body>
+</html>
