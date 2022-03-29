@@ -1,3 +1,10 @@
+/* 
+color theme: 
+  green #12171C,
+  lightgreen: #D3FBD8,
+  turquoise: #00C6B4
+*/
+
 #banner {
   box-shadow: 0.5rem 0.5rem black, -0.5rem -0.5rem #ccc;
   height: auto;
@@ -16,7 +23,8 @@
 }
 
 #display {
-  margin-top: 15px;
+  margin-top: 5px;
+  margin-bottom: 15px;
 }
 
 #enter_the_pit {
@@ -30,8 +38,6 @@
   padding: 0;
   list-style: none;
 }
-
-
 
 #selected {
   border-color: #CBF83E;
