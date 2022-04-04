@@ -1,3 +1,48 @@
+/*
+  User validation checks
+*/
+const checkName = (string) => {
+  let name = string.value;
+  try {
+    if (/^([A-Za-z]{4,})/.test(name)) {
+      return true;
+    } else {
+      return false;
+    }
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+const checkEmail = (string) => {
+  let mail = string.value;
+  try {
+    if (/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/.test(mail)) {
+      return true;
+    } else {
+      return false;
+    }
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+const checkPassword = (string) => {
+  let password = string.value;
+  try {
+    if (/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/.test(password)) {
+      return true;
+    } else {
+      return false;
+    }
+  } catch (err) {
+    console.log(err)
+  }
+}
+/*
+  End of User validation checks
+*/
+
 const total = () => {
   // js html selectors
   let t = document.querySelector('input[name="tier"]:checked').value,
@@ -10,6 +55,9 @@ const total = () => {
   document.getElementById("write").innerText = `Your bill will renew every ${m} months at $${t} dollars per month, for a total of $${result} dollars.`;
 }
 
+/*
+  A DOM selection that will capture the text values for the order total amount
+*/
 const showTotal = (evt) => {
   if (evt.target.id === 'price1') {
     document.getElementById('price1').innerText = '$0 / month';
@@ -20,6 +68,9 @@ const showTotal = (evt) => {
   }
 }
 
+/*
+  A simple for loop that will create the seperate lines for each option checked by the user
+*/
 const showOptions = (array) => {
   let value = "<br>";
   for (let i = 0; i < array.length; i++) {
@@ -83,6 +134,33 @@ const createDisplay = (order) => {
 }
 
 /*
+  Check user info before calling previewOrder
+*/
+const checkOrder = () => {
+  const name = checkName(),
+  mail = checkEmail(),
+  password = checkPassword();
+
+  let passOrFail = false
+
+  if (name === true) {
+    passOrFail = true
+  }
+
+  if (mail === true) {
+    passOrFail = true
+  }
+
+  if (password === true) {
+    passOrFail = true
+  }
+
+  if (passOrFail === false) {
+    console.log('failed')
+  }
+}
+
+/*
   Display object's for Order Views
 */
 const previewOrder = () => {
@@ -93,5 +171,30 @@ const previewOrder = () => {
 }
 
 window.onload = function() {
-  previewOrder();
+  const user = document.getElementById('username'),
+  email = document.getElementById('mail'),
+  password = document.getElementById('pwd');
+
+  user.addEventListener('blur', function() {
+    user.setCustomValidity('Please enter your full name here.')
+    if (checkName(user) === false) {
+      user.reportValidity()
+    }
+  })
+
+  email.addEventListener('blur', function() {
+    email.setCustomValidity('Please enter a valid email address here.')
+    if (checkEmail(email) === false) {
+      email.reportValidity()
+    }
+  })
+
+  password.addEventListener('blur', function() {
+    password.setCustomValidity('Please enter a password at least eight characters long with at least one number.')
+    if (checkPassword(password) === false) {
+      password.reportValidity()
+    } else {
+      previewOrder();
+    }
+  })
 }

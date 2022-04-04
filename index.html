@@ -13,7 +13,8 @@
   <script src="assests/js/modernizr.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
   <script src="assests/js/index.js"></script>
-  <script src="assests/js/app.js" async></script>
+  <script src="assests/js/order.js" async></script>
+  <script src="assests/js/validation.js" async></script>
 </head>
 <body>
   <header>
@@ -28,9 +29,7 @@
   </header>
 
   <article class="index">
-    <h1 id="enter_the_pit">enter the pit</h1>
-    <img id="banner" src="assests/images/website_banner.jpeg" alt="Website header of a Cobra"/>
-    <p>Welcome to ‘The Pit’. Tired of seeing old, used up and worn-out tech stacks on your Content Management System? Do you want to stand out from your competition? Maybe you want to intimidate them? Maybe to strike fear in their very hearts at the sight of your webpage?
+    <p>Welcome to `The Pit`. Tired of seeing old, used up and worn-out tech stacks on your Content Management System? Do you want to stand out from your competition? Maybe you want to intimidate them? Maybe to strike fear in their very hearts at the sight of your webpage?
     <br><br>
     Look no further.
     <br><br>
@@ -87,6 +86,7 @@
       </fieldset>
 
       <fieldset>
+        <legend>Options: *</legend>
         <div>
           <input type="checkbox" id="firstOpt" name="option" value="JIRA">
           <label for="firstOpt">Free JIRA team membership</label>
@@ -112,22 +112,24 @@
       <p>
         <label for="name">
           <span>Name: *</span>
-          <input type="text" id="username" placeholder="Fullname" name="username" required pattern="[A-Za-z]+" value="Jon">
+          <p class = "errorMessage top-arrow"></p>
+          <input type="text" id="username" name="username" placeholder="Firstname and Lastname" required>
         </label>
       </p>
       <p>
         <label for="mail">
           <span>E-mail: *</span>
-          <input type="email" id="mail" placeholder="Email Address" name="usermail" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" value="j.d.east@icloud.com">
+          <p class = "errorMessage top-arrow"></p>
+          <input type="email" id="mail" placeholder="Email Address" name="usermail" required>
         </label>
       </p>
       <p>
         <label for="pwd">
           <span>Password: *</span>
-          <input type="password" id="pwd" placeholder="Password" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" value="12345">
+          <p class = "errorMessage top-arrow"></p>
+          <input type="password" id="pwd" placeholder="Password" name="password" required>
         </label>
       </p>
-
     </section>
 
     <section>
@@ -162,6 +164,7 @@
 
       <button id="makeOrder" type="button">Validate the payment</button>
     </section>
+    
 
   </form>
 
@@ -247,6 +250,7 @@
     <p>With the introduction of Https this transfer has become more secure (the S in Https standing for 'secure'). What happens now is that when your browser communicates with the website, the website will pass your broswer a SSL certificate that is used for that one time to create a secure connection between the two.</p>
     <p>This does not mean however that the website you are accessing will not damage or intrude your system. It only means that the transfer of information between your computer and the site is secure.<sup><a href="https://www.sessions.edu/notes-on-design/what-is-https-and-why-is-it-important/" target="_blank">[1]</a></sup></p>
   </article>
+  
   <article class="index blog">
     <h2>Dieting on Cookies</h2>
     <p class="italic">Author: Jonathan Eastin
@@ -258,6 +262,7 @@
     <p>One of the other uses of cookies and prehaps the most notorious is their abiliy to track you. These can in cases like 'Google Adsense' track you across multiple unrelated sites and target ad you with relelvant or recently searched for items or services.</p>
     <p>It is important for users to periodically purge their cookie folders ever so often via their browser or operating system. Browsers have streamlined this process to even allow users to flush the cookie folder upon closing of the browser.<a href="https://www.internetcookies.com/about-cookies/#Session_management" target="_blank"><sup>[2]</sup></a></p>
   </article>
+
   <article class="index blog">
     <h2>JavaScript? JavaScript?!</h2>
     <p class="italic">Author: Jonathan Eastin

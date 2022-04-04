@@ -1,0 +1,74 @@
+/* --------------------Media Queries-------------------- */
+@media screen and (max-width: 720px) and (min-width: 320px) {
+  p {
+    font-size: 16px;
+  }
+
+  /* this is to ensure the nav menu is easy for the user to click and large enough to not be a problem */
+  nav > ul > li {
+    font-size: 14px;
+    display: block;
+    padding: .1em;
+  }
+}
+
+@media screen and (max-width: 1366px) and (min-width: 720px) {
+  img {
+    max-height: 15em;
+    max-width: 15em;
+  }
+
+  nav > ul {
+    text-align: center;
+  }
+  
+  /* navmenu is is inlined and centered with padding to create seperation */
+  nav > ul > li {
+    display: inline;
+    padding-left: 1em;
+  }
+
+  /* snake images removed from the normal doc flow to save vertical space on tablets */
+  .service_snakes {
+    float: right;
+  }
+}
+
+@media screen and (max-width: 1920px) and (min-width: 1366px) {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    width: 66%;
+  }
+
+  /* with changes made to services page the hr needed a clear command to keep the normal doc flow together */
+  hr {
+    clear: left;
+  }
+
+  nav > ul {
+    text-align: left;
+  }
+
+  nav > ul > li {
+    display: inline;
+    padding-left: 1em;
+  }
+
+  .service_snakes {
+    float: right;
+  }
+
+  /* columns are constructed for each service tier with padding, margins and width to make them pleasant and easy to see
+    this was made to utilize the wider screen size of desktop/laptops */
+  .column {
+    float: left;
+    padding: 0.5em;
+    margin-left: .75em;
+    margin-bottom: 1em;
+    width: 32%;
+  }
+}
+/* End of Media Queries */
