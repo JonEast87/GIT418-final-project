@@ -134,33 +134,6 @@ const createDisplay = (order) => {
 }
 
 /*
-  Check user info before calling previewOrder
-*/
-const checkOrder = () => {
-  const name = checkName(),
-  mail = checkEmail(),
-  password = checkPassword();
-
-  let passOrFail = false
-
-  if (name === true) {
-    passOrFail = true
-  }
-
-  if (mail === true) {
-    passOrFail = true
-  }
-
-  if (password === true) {
-    passOrFail = true
-  }
-
-  if (passOrFail === false) {
-    console.log('failed')
-  }
-}
-
-/*
   Display object's for Order Views
 */
 const previewOrder = () => {
@@ -175,10 +148,15 @@ window.onload = function() {
   email = document.getElementById('mail'),
   password = document.getElementById('pwd');
 
+  let check = false;
+
   user.addEventListener('blur', function() {
     user.setCustomValidity('Please enter your full name here.')
     if (checkName(user) === false) {
       user.reportValidity()
+      check = false;
+    } else {
+      check = true;
     }
   })
 
@@ -186,6 +164,9 @@ window.onload = function() {
     email.setCustomValidity('Please enter a valid email address here.')
     if (checkEmail(email) === false) {
       email.reportValidity()
+      check = false;
+    } else {
+      check = true;
     }
   })
 
@@ -193,7 +174,8 @@ window.onload = function() {
     password.setCustomValidity('Please enter a password at least eight characters long with at least one number.')
     if (checkPassword(password) === false) {
       password.reportValidity()
-    } else {
+      check = false;
+    } else if (check === true) {
       previewOrder();
     }
   })
