@@ -14,7 +14,6 @@
   <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
   <script src="assests/js/index.js"></script>
   <script src="assests/js/order.js" async></script>
-  <script src="assests/js/validation.js" async></script>
 </head>
 <body>
   <header>
@@ -134,8 +133,10 @@
       <p>
         <label for="card">Card:
           <select id="card" name="usercard">
-            <option disabled selected value="blank"> -- select an option -- </option>
-            <option value="amex" selected>Amex</option>
+            <option disabled selected value="blank">
+              -- select an option --
+            </option>
+            <option value="amex">Amex</option>
             <option value="mc">MasterCard</option>
             <option value="visa">Visa</option>
           </select>
@@ -143,20 +144,20 @@
       </p>
 
       <!-- Fake card numbers for each selection below
-        Visa card: 4569-4039-6101-4710,
-        MasterCard: 5191-9149-4215-7165,
-        Amex: 3714-496353-98431
+        Visa card: 4569403961014710,
+        MasterCard: 5191914942157165,
+        Amex: 370341378581367
       -->
       
       <p>
         <label for="number">Card number: *
-          <input type="tel" id="number" name="cardnumber" value="3714-496353-98431">
+          <input type="tel" id="number" name="cardnumber">
         </label>
       </p>
 
       <p>
         <label for="expiration">Expiration date: *
-          <input type="text" name="expiration" id="expiration" placeholder="MM/YY" required pattern="^(0[1-9]|1[0-2])\/([0-9]{2})$" value="01/23">
+          <input type="text" name="expiration" id="expiration" placeholder="MM/YY" required>
         </label>
       </p>
 
