@@ -10,9 +10,13 @@
   <link rel="icon" type="image/png" href="assests/images/favicon-16x16.png" sizes="16x16">
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300&family=Oswald:wght@700&family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/tomorrow-night-eighties.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css" />
+  <link rel="stylesheet" href="https://cdn.maptiler.com/mapbox-gl-js/v1.5.1/mapbox-gl.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.js"></script>
+  <script src="https://cdn.maptiler.com/mapbox-gl-js/v1.5.1/mapbox-gl.js"></script>
+  <script src="https://cdn.maptiler.com/mapbox-gl-leaflet/latest/leaflet-mapbox-gl.js"></script>
   <script src="assests/js/modernizr.min.js"></script>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
-  <script src="assests/js/index.js"></script>
+  <script src="assests/js/index.js" async></script>
   <script src="assests/js/order.js" async></script>
 </head>
 <body>
@@ -34,145 +38,12 @@
     <br><br>
     Nothing is as scary as coming across a <span class="underline italic">Cobra</span> in the dark. And nothing strikes near as fast as <span class="underline italic">yours</span> will…</p>
   </article>
-
-  <form id="form">
-    
-    <h1>Payment form</h1>
-    <p>Required fields are followed by *.</p>
-
-    <section>
-      <h2>Contact information</h2>
-      <fieldset>
-        <legend>Tier: *</legend>
-        <ul id="tier" onchange="total()">
-          <li>
-            <label for="tier_3">
-              <input type="radio" name="tier" value="0" required checked>Naja (Hobbyist)
-            </label>
-          </li>
-          <li>
-            <label for="tier_2">
-              <input type="radio" name="tier" value="16">Rinkhal (Small Business)
-            </label>
-          </li>
-          <li>
-            <label for="tier_1">
-              <input type="radio" name="tier" value="32">Hamadryad (Ecommerce)
-            </label>
-          </li>
-        </ul>
-      </fieldset>
-
-      <fieldset>
-        <legend>Duration: *</legend>
-        <ul id="month" onchange="total()">
-          <li>
-            <label for="month_3">
-              <input type="radio" name="month" value="3" required checked>Thee Months
-            </label>
-          </li>
-          <li>
-            <label for="month_6">
-              <input type="radio" name="month" value="6">Six Months
-            </label>
-          </li>
-          <li>
-            <label for="month_12">
-              <input type="radio" name="month" value="12">Twelve Months
-            </label>
-          </li>
-      </ul>
-      </fieldset>
-
-      <fieldset>
-        <legend>Options: *</legend>
-        <div>
-          <input type="checkbox" id="firstOpt" name="option" value="JIRA">
-          <label for="firstOpt">Free JIRA team membership</label>
-        </div>
-        <div>
-          <input type="checkbox" id="secondOpt" name="option" value="Server priority">
-          <label for="secondOpt">Priority server access</label>
-        </div>
-        <div>
-          <input type="checkbox" id="thirdOpt" name="option" value="24/7 support">
-          <label for="thirdOpt">24/7 Support</label>
-        </div>
-        <div>
-          <input type="checkbox" id="fourthOpt" name="option" value="Security against XXS attacks">
-          <label for="fourthOpt">Security against XXS attacks</label>
-        </div>
-        <div>
-          <input type="checkbox" id="fifthOpt" name="option" value="200G db">
-          <label for="fifthOpt">Additional 200gb database</label>
-        </div>
-      </fieldset>
-
-      <p>
-        <label for="name">
-          <span>Name: *</span>
-          <input type="text" id="username" name="username" placeholder="Firstname Lastname" required>
-        </label>
-      </p>
-      <p>
-        <label for="mail">
-          <span>E-mail: *</span>
-          <input type="email" id="mail" placeholder="Email Address" name="usermail" required>
-        </label>
-      </p>
-      <p>
-        <label for="pwd">
-          <span>Password: *</span>
-          <input type="password" id="pwd" placeholder="Password" name="password" required>
-        </label>
-      </p>
-    </section>
-
-    <section>
-      <h2>Payment information</h2>
-      <p>
-        <label for="card">Card:
-          <select id="card" name="usercard">
-            <option disabled selected value="blank">
-              -- select an option --
-            </option>
-            <option value="amex">Amex</option>
-            <option value="mc">MasterCard</option>
-            <option value="visa">Visa</option>
-          </select>
-        </label>
-      </p>
-
-      <!-- Fake card numbers for each selection below
-        Visa card: 4569403961014710,
-        MasterCard: 5191914942157165,
-        Amex: 370341378581367
-      -->
-      
-      <p>
-        <label for="number">Card number: *
-          <input type="tel" id="number" name="cardnumber">
-        </label>
-      </p>
-
-      <p>
-        <label for="expiration">Expiration date: *
-          <input type="text" name="expiration" id="expiration" placeholder="MM/YY" required>
-        </label>
-      </p>
-
-      <p id="write">Total amount.</p>
-
-      <button id="makeOrder" type="button">Validate the payment</button>
-    </section>
-    
-
-  </form>
-
-  <section id="display">
-    <h2>Your Orders:</h2>
-    <p id="showOrder"></p>
-  </section>
+  
+  <article class="index">
+    <div id="map"></div>
+    <p><a href="https://www.maptiler.com/copyright/" target="_blank">© MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a></p>
+    <p id="location"></p>
+  </article>
 
   <article class="index blog">
     <h2>Tutorial - Intermediate JavaScript Functions</h2>
@@ -228,20 +99,6 @@
   </article>
 
   <article class="index blog">
-    <h2>Web Security 101</h2>
-    <p class="italic">Author: Jonathan Eastin
-      <br>9:00PM Nov. 19th
-    </p>
-    <p>Before you begin your journey with us as a student of web development, there are a few things you ought to be aware of to protect yourself.</p>
-    <p>When using the internet websites get six pieces of information about you and your system you may not be aware of.</p>
-    <p>First is your ‘<span class="underline info" onclick="sixProps()">appName</span>’ which is your browser. Second is your ‘<span class="underline info" onclick="sixProps()">appVersion</span>’ which tracks your browser's version.</p>
-    <p>Third is your ‘<span class="underline info" onclick="sixProps()">geolocation</span>’, this is your physical location in the world. This feature can be turned off at your will.</p>
-    <p>Fourth is your internet status or ‘<span class="underline info" onclick="sixProps()">onLine</span>’ status that shows whether your system is currently online or offline. Fifth is your ‘<span class="underline info" onclick="sixProps()">platform</span>’ which indentifies your system's operating system.</p>
-    <p>Last but not least is the sixth, which is your ‘<span class="underline info" onclick="sixProps()">userAgent</span>’ which stores standard information such as the browser, platform and system compatibility with the website.</p>
-    <p>Your info here! <span id="user_info"></span></p>
-  </article>
-
-  <article class="index blog">
     <h2>You, me and HTTPS</h2>
     <p class="italic">Author: Jonathan Eastin
       <br>9:00PM Nov. 19th
@@ -278,6 +135,5 @@
     <p>A major injection exploit was discovered when a WordPress plugin was found to have been vulnerable to SSI, which affected over 400,000 websites. Users can carry out these attacks this in several ways.</p>
     <p>Some of the easiest ways to avoid SSI is to avoid the use of JavaScript serialization in your html input fields, avoid the use of eval(), setTimeout(), setInterval() and new Function() in your programs. NodeJS security linters are also being created to further help developers to prevent SSI.<a href="https://snyk.io/blog/5-ways-to-prevent-code-injection-in-javascript-and-node-js/" target="_blank"><sup>[3]</sup></a></p>
   </article>
-
 </body>
 </html>
