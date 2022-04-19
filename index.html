@@ -9,15 +9,15 @@
   <link rel="icon" type="image/png" href="assests/images/favicon-32x32.png" sizes="32x32">
   <link rel="icon" type="image/png" href="assests/images/favicon-16x16.png" sizes="16x16">
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300&family=Oswald:wght@700&family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/tomorrow-night-eighties.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/tomorrow-night-eighties.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css" />
   <link rel="stylesheet" href="https://cdn.maptiler.com/mapbox-gl-js/v1.5.1/mapbox-gl.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.js"></script>
   <script src="https://cdn.maptiler.com/mapbox-gl-js/v1.5.1/mapbox-gl.js"></script>
-  <script src="https://cdn.maptiler.com/mapbox-gl-leaflet/latest/leaflet-mapbox-gl.js"></script>
+  <script src="https://cdn.maptiler.com/mapbox-gl-leaflet/latest/leaflet-mapbox-gl.js"></script> -->
   <script src="assests/js/modernizr.min.js"></script>
-  <script src="assests/js/index.js" async></script>
   <script src="assests/js/order.js" async></script>
+  <script src="assests/js/api.js" async></script>
 </head>
 <body>
   <header>
@@ -40,9 +40,12 @@
   </article>
   
   <article class="index">
-    <div id="map"></div>
-    <p><a href="https://www.maptiler.com/copyright/" target="_blank">© MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a></p>
-    <p id="location"></p>
+    <button onclick="loadInformation()">Find Xur's Location</button>
+    <div>
+      <h2 id="location"></h2>
+      <ul id="unordered">
+      </ul>
+    </div>
   </article>
 
   <article class="index blog">
@@ -70,7 +73,7 @@
         lessThanFive = numbers.filter(number => number < 5)
       </code>
     </pre>
-    <p>You might be wondering, "That's it?", "No setting up the array length? No instantiate of i or any other vowel to track the loop's progress?"</p>
+    <p>You might be wondering, "That's it?", "No setting up the array length? No instantiating of i or any other vowel to track the loop's progress?"</p>
     <p>Nope none of that. In fact the filter method can be used in many ways not just for sifting numbers, but word lengths and element types.</p>
     <p>Let's look at another intermediate function call in JavaScript. My personal favorite, "map".</p>
     <p>If you wanted to double the values of each array's elements you could do something similar to this:</p>
@@ -90,7 +93,7 @@
         let doubled = array.map(x => x * 2)
       </code>
     </pre>
-    <p>It's magnificent isn't it? Now while these solutions are not anymore efficent than the others in terms of time execution they do safe lines and make your code much more manageable.</p>
+    <p>It's magnificent isn't it? Now while these solutions are not anymore efficent than the others in terms of time execution they do save lines and make your code much more manageable.</p>
     <p>Also to note, is that since they are technically functions they can also be tied to const and let variables for ease of or reuse, whereas having to do the same for a stand for loop would require more typing of the function shell it would inhabit. With these intermediate functions that is already built it.</p>
     <p>If you would like to play around with these code snippets a bit or learn more about them their jsfiddle links will be below:</p>
     <p>Filter.<sup><a href="https://jsfiddle.net/JonEast87/bx8ae61q/12/" target="_blank">[1]</a></sup></p>
