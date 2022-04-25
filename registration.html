@@ -8,9 +8,14 @@
   <link rel="stylesheet" type="text/css" href="assests/css/stylesheet.css">
   <link rel="icon" type="image/png" href="assests/images/favicon-32x32.png" sizes="32x32">
   <link rel="icon" type="image/png" href="assests/images/favicon-16x16.png" sizes="16x16">
-  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300&family=Oswald:wght@700&family=Roboto+Slab:wght@500&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300&family=Oswald:wght@700&family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
   <script src="assests/js/modernizr.min.js"></script>
-  <script src="assests/js/app.js" async></script>
+  <script src="assests/js/api.js" async></script>
+  <script src="assests/js/order.js" async></script>
 </head>
 <body>
   <header>
@@ -100,19 +105,19 @@
       <p>
         <label for="name">
           <span>Name: *</span>
-          <input type="text" id="username" name="username" placeholder="Firstname Lastname" required>
+          <input type="text" id="username" name="username" placeholder="Firstname Lastname" value="Jonathan Eastin" required>
         </label>
       </p>
       <p>
         <label for="mail">
           <span>E-mail: *</span>
-          <input type="email" id="mail" placeholder="Email Address" name="usermail" required>
+          <input type="email" id="mail" placeholder="Email Address" name="usermail" value="j.d.east@icloud.com" required>
         </label>
       </p>
       <p>
         <label for="pwd">
           <span>Password: *</span>
-          <input type="password" id="pwd" placeholder="Password" name="password" required>
+          <input type="password" id="pwd" placeholder="Password" name="password" value="Nabaali2" required>
         </label>
       </p>
     </section>
@@ -134,13 +139,13 @@
       
       <p>
         <label for="number">Card number: *
-          <input type="tel" id="number" name="cardnumber">
+          <input type="tel" id="number" name="cardnumber" value="371449635398431">
         </label>
       </p>
 
       <p>
         <label for="expiration">Expiration date: *
-          <input type="text" name="expiration" id="expiration" placeholder="MM/YY" required>
+          <input type="text" name="expiration" id="expiration" placeholder="MM/YY" value="01/23" required>
         </label>
       </p>
 

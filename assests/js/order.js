@@ -90,39 +90,29 @@ const creditCardFormat = (cardSelected) => {
   End of User validation checks
 */
 const total = () => {
-  // js html selectors
-  let t = document.querySelector('input[name="tier"]:checked').value,
-  m = document.querySelector('input[name="month"]:checked').value;
+  // jquery html selectors
+  const t = $('input[name="tier"]:checked').val(),
+  m = $('input[name="month"]:checked').val()
 
   // calc of the selected values
   let result = Number(t) * Number(m);
 
-  // writing it to the desginated html element
-  document.getElementById("write").innerText = `Your bill will renew every ${m} months at $${t} dollars per month, for a total of $${result} dollars.`;
-}
-
-/*
-  A DOM selection that will capture the text values for the order total amount
-*/
-const showTotal = (evt) => {
-  if (evt.target.id === 'price1') {
-    document.getElementById('price1').innerText = '$0 / month';
-  } else if (evt.target.id === 'price2') {
-    document.getElementById('price2').innerText = '$16 / month';
-  } else if (evt.target.id === 'price3') {
-    document.getElementById('price3').innerText = '$32 / month';
-  }
+  // writing it to the designated html element
+  $("#write").text(`Your bill will renew every ${m} months at $${t} dollars per month, for a total of $${result} dollars.`);
 }
 
 /*
   A simple for loop that will create the seperate lines for each option checked by the user
 */
 const showOptions = (array) => {
-  let value = "<br>";
-  for (let i = 0; i < array.length; i++) {
-    value += array[i] + "<br>";
+  let value = "No options selected.";
+  if (array.length > 0) {
+    for (let i = 0; i < array.length; i++) {
+      value += array[i] + ' ';
+    }
+  } else {
+    return value
   }
-  value = value + "- End of Options -"
   return value;
 }
 
@@ -142,13 +132,13 @@ function Order(tier, month, options, username, mail, card) {
   Arrow function that uses the Constructor to build the object and send it to display
 */
 const createOrder = () => {
-  let tier = document.querySelector('input[name="tier"]:checked').value,
-  month = document.querySelector('input[name="month"]:checked').value,
+  let tier = $('input[name="tier"]:checked').val(),
+  month = $('input[name="month"]:checked').val(),
   options = [],
-  username = document.getElementById('username').value,
-  mail = document.getElementById('mail').value,
-  card = document.getElementById('card').value,
-  checkboxes = document.getElementsByName('option');
+  username = $('#username').val(),
+  mail = $('#mail').val(),
+  card = $('#card').val(),
+  checkboxes = $('option');
 
   for (let checkbox of checkboxes) {
     if (checkbox.checked) {
@@ -164,19 +154,13 @@ const createOrder = () => {
 */
 const createDisplay = (order) => {
   let optionsList = showOptions(order.options)
-  document.getElementById('showOrder').innerHTML = 
-  "Your Tier - " + order.tier 
-  + "<br>" + 
-  "Your Month Subscription - " + order.month 
-  + "<br>" + 
-  "- Options - " + optionsList 
-  + "<br>" + 
-  "Your Username - " + order.username 
-  + "<br>" + 
-  "Your E-mail - " + order.mail 
-  + "<br>" + 
-  "Your Card - " + order.card + 
-  "<br>";
+  $('#showOrder').text(
+  `Tier - ${order.tier}
+  Subscription - ${order.month}
+  Options - ${optionsList}
+  Username - ${order.username}
+  E-mail - ${order.mail}
+  Card - ${order.card}`)
 }
 
 /*
@@ -247,5 +231,5 @@ window.onload = function() {
       previewOrder();
     }
   })
-
+  previewOrder();
 }
