@@ -9,15 +9,9 @@
   <link rel="icon" type="image/png" href="assests/images/favicon-32x32.png" sizes="32x32">
   <link rel="icon" type="image/png" href="assests/images/favicon-16x16.png" sizes="16x16">
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300&family=Oswald:wght@700&family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/tomorrow-night-eighties.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css" />
-  <link rel="stylesheet" href="https://cdn.maptiler.com/mapbox-gl-js/v1.5.1/mapbox-gl.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.js"></script>
-  <script src="https://cdn.maptiler.com/mapbox-gl-js/v1.5.1/mapbox-gl.js"></script>
-  <script src="https://cdn.maptiler.com/mapbox-gl-leaflet/latest/leaflet-mapbox-gl.js"></script> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/tomorrow-night-eighties.min.css">
   <script src="assests/js/modernizr.min.js"></script>
   <script src="assests/js/order.js" async></script>
-  <script src="assests/js/api.js" async></script>
 </head>
 <body>
   <header>
@@ -32,32 +26,17 @@
   </header>
 
   <article class="index">
-    <p>Welcome to `The Pit`. Tired of seeing old, used up and worn-out tech stacks on your Content Management System? Do you want to stand out from your competition? Maybe you want to intimidate them? Maybe to strike fear in their very hearts at the sight of your webpage?
+    <p>Welcome to <strong>"The Pit"</strong>. Tired of seeing old, used up and worn-out tech stacks on your Content Management System? Do you want to stand out from your competition? Maybe you want to intimidate them? Maybe to strike fear in their very hearts at the sight of your webpage?
     <br><br>
     Look no further.
     <br><br>
-    Nothing is as scary as coming across a <span class="underline italic">Cobra</span> in the dark. And nothing strikes near as fast as <span class="underline italic">yours</span> will…</p>
-  </article>
-  
-  <!-- <article class="index">
-    <button onclick="loadInformation()">Find Xur's Location</button>
-    <div>
-      <h2 id="location"></h2>
-      <ul id="unordered">
-      </ul>
-    </div>
-  </article> -->
-
-  <article class="index blog">
-    <h2>Link to Assignment</h2>
-    <p>Here is the link to <a href="registration.html"><strong>Assignment 12</strong></a></p>
-    <p>Much of the selectors were changed to jQuery stand selectors with createDisplay being done using the jQuery .text() method.</p>
+    Nothing is as scary as coming across a Cobra in the dark. And nothing strikes near as fast as yours will…</p>
   </article>
 
   <article class="index blog">
     <h2>Tutorial - Intermediate JavaScript Functions</h2>
     <p class="italic">Author: Jonathan Eastin
-      <br>10:00PM Dec. 2nd
+      <br>4:30PM April 29th
     </p>
     <p>I want to talk a little about intermediate and advanced functions built into the JavaScript language. Most students are aware of the more rudimentary loops such as, "for", "do while" and "while".</p>
     <p>However there exists more than just those, and in several cases they are superior at certain tasks than the others.</p>
@@ -65,7 +44,7 @@
     <p>Well you would probably start that solution off like:</p>
     <pre>
       <code class="javascript">
-        let lessThanFive = new Array()
+        const lessThanFive = new Array()
         for (let i = 0; i < array.length; i++) {
           if (array[i] < 5) {
             lessThanFive.push(array[i])
@@ -76,17 +55,18 @@
     <p>Seems simple right? Well there is a better and quicker way to accomplish.</p>
     <pre>
       <code class="javascript">
-        lessThanFive = numbers.filter(number => number < 5)
+        const lessThanFive = numbers.filter(number => number < 5)
       </code>
     </pre>
     <p>You might be wondering, "That's it?", "No setting up the array length? No instantiating of i or any other vowel to track the loop's progress?"</p>
     <p>Nope none of that. In fact the filter method can be used in many ways not just for sifting numbers, but word lengths and element types.</p>
+    <p>These functions are referred to as "Higher Order Functions". There are several of them and they are all specialized to handle certain tasks.</p>
     <p>Let's look at another intermediate function call in JavaScript. My personal favorite, "map".</p>
     <p>If you wanted to double the values of each array's elements you could do something similar to this:</p>
     <pre>
       <code class="javascript">
-        let array = [1, 2, 3, 4]
-        let doubled = new Array()
+        const array = [1, 2, 3, 4]
+        const doubled = new Array()
         for (let i = 0; i < array.length; i++) {
           doubled.push(2 * array[i])
         }
@@ -95,54 +75,38 @@
     <p>Instead with map we can do that in just two lines:</p>
     <pre>
       <code class="javascript">
-        let array = [1, 2, 3, 4]
-        let doubled = array.map(x => x * 2)
+        const array = [1, 2, 3, 4]
+        const doubled = array.map(x => x * 2)
       </code>
     </pre>
     <p>It's magnificent isn't it? Now while these solutions are not anymore efficent than the others in terms of time execution they do save lines and make your code much more manageable.</p>
-    <p>Also to note, is that since they are technically functions they can also be tied to const and let variables for ease of or reuse, whereas having to do the same for a stand for loop would require more typing of the function shell it would inhabit. With these intermediate functions that is already built it.</p>
+    <p>Also to note, is that since they are technically functions they can also be tied to const and let variables for ease of use or reuse, whereas having to do the same for a standard for loop would require more typing. With these intermediate functions, they are already built.</p>
+    <p>These methods asbstract a lot of the setup away but there are still numerous ways for you to have more immediate control of them, let's look at the 'forEach' function for this case:</p>
+    <pre>
+      <code class="javascript">
+        const array = [5, 4, 5]
+        const iterationVariable = array.forEach(element => element + element)
+      </code>
+    </pre>
+    <p>Following the forEach call is what is referred to as a <span class="underline">callback</span>, this callback contains the <span class="underline">'element'</span> which is the current item being processed in the array, an <span class="underline">'index'</span> which is it's spot in the array, and then the array itself that is being looped through.</p>
+    <p>The variable above however will return an 'undefined' value. Why? This is because forEach unlike 'map' or 'filter' simply loops through the array without doing any mutations to the array that it is called on. You can get a return value and have it change or mutate if you want:</p>
+    <pre>
+      <code class="javascript">
+        const iterationFunction = array => {
+          let sum = []
+          array.forEach(element => double.push(element + element))
+          return sum
+        }
+      </code>
+    </pre>
+    <p>The above call tells the forEach that you want it to 'push' the added elements into the new variable 'double' and the function itself will return it when done.</p>
+    <p>Because of how the forEach is setup it actually gives you more control on what you can do with it and return as a result of it.</p>
+    <br><br>
     <p>If you would like to play around with these code snippets a bit or learn more about them their jsfiddle links will be below:</p>
     <p>Filter.<sup><a href="https://jsfiddle.net/JonEast87/bx8ae61q/12/" target="_blank">[1]</a></sup></p>
-    <p>Map.<sup><a href="https://jsfiddle.net/JonEast87/pgxyuc6m/" target="_blank">[2]</a></sup></p></p>
+    <p>Map.<sup><a href="https://jsfiddle.net/JonEast87/pgxyuc6m/" target="_blank">[2]</a></sup></p>
+    <p>forEach.<sup><a href="https://jsfiddle.net/JonEast87/9zh4wptr/11/" target="_blank">[3]</a></sup></p>
     <p>Happy Coding!_</p>
-  </article>
-
-  <article class="index blog">
-    <h2>You, me and HTTPS</h2>
-    <p class="italic">Author: Jonathan Eastin
-      <br>9:00PM Nov. 19th
-    </p>
-    <p>Most of the denizens of the web are not necessarily familiar with a websites "protocol", which has for years been 'http'. This standard however is being replaced with a new type of protocol 'https'.</p>
-    <p>Upon loading up a website both the website and your browser will communicate and exchange the necessary information needed to load the page you requested. This exchange is called a 'protocol' and it has been headed by http for years.</p>
-    <p>With the introduction of Https this transfer has become more secure (the S in Https standing for 'secure'). What happens now is that when your browser communicates with the website, the website will pass your broswer a SSL certificate that is used for that one time to create a secure connection between the two.</p>
-    <p>This does not mean however that the website you are accessing will not damage or intrude your system. It only means that the transfer of information between your computer and the site is secure.<sup><a href="https://www.sessions.edu/notes-on-design/what-is-https-and-why-is-it-important/" target="_blank">[1]</a></sup></p>
-  </article>
-  
-  <article class="index blog">
-    <h2>Dieting on Cookies</h2>
-    <p class="italic">Author: Jonathan Eastin
-      <br>9:00PM Nov. 19th
-    </p>
-    <p>You are probably wondering just why would someone diet on cookies only? Well on the internet websites generally save small text files onto your computer, these text files are refered to as "cookies".</p>
-    <p>While cookies are mostly innocuous to you and your system since they mostly store information like username/password to your computer, they can be used for other purposes as well.</p>
-    <p>Cookies can also include other miscellanous information that the site may require of you.</p>
-    <p>One of the other uses of cookies and prehaps the most notorious is their abiliy to track you. These can in cases like 'Google Adsense' track you across multiple unrelated sites and target ad you with relelvant or recently searched for items or services.</p>
-    <p>It is important for users to periodically purge their cookie folders ever so often via their browser or operating system. Browsers have streamlined this process to even allow users to flush the cookie folder upon closing of the browser.<a href="https://www.internetcookies.com/about-cookies/#Session_management" target="_blank"><sup>[2]</sup></a></p>
-  </article>
-
-  <article class="index blog">
-    <h2>JavaScript? JavaScript?!</h2>
-    <p class="italic">Author: Jonathan Eastin
-      <br>9:00PM Nov. 19th
-    </p>
-    <p>An incredibly popular programming language that began as a web specific language but has now begun to find itself in more non web applications through various mediums (electron and NodeJS, amongst others).</p>
-    <p>Because of it's popularity it is important for web developers to know of it, to be aware of it and also what it is capable of. The popularity of the language also makes it a frequent vehicle of attack on websites and JavaScript based applications.</p>
-    <p>Some of the most common of these are cross-site scripting (XSS) and server-side JavaScript injection.</p>
-    <p>XSS has been around for sometime compared to server side injection. XSS involves injecting malicious code (often times by the owner themselves unknowningly) into a vulnerable application and using that application as a vehicle to spread the code or to steal important information from your applications users'.</p>
-    <p>It is best avoided by not injecting unknown scripts into your webpage.</p>
-    <p>Serer side injection occurs when a <span class="italics">user injects</span> malicious code into your site. Not to be confused with XSS which is the owner themselves accidentally (or purposely) injecting the malicious code into their own website. Users this time are the ones possibly compromising websites.</p>
-    <p>A major injection exploit was discovered when a WordPress plugin was found to have been vulnerable to SSI, which affected over 400,000 websites. Users can carry out these attacks this in several ways.</p>
-    <p>Some of the easiest ways to avoid SSI is to avoid the use of JavaScript serialization in your html input fields, avoid the use of eval(), setTimeout(), setInterval() and new Function() in your programs. NodeJS security linters are also being created to further help developers to prevent SSI.<a href="https://snyk.io/blog/5-ways-to-prevent-code-injection-in-javascript-and-node-js/" target="_blank"><sup>[3]</sup></a></p>
   </article>
 </body>
 </html>
